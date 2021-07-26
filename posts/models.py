@@ -1,5 +1,6 @@
 from django.db import models
 from core import models as core_models
+from users import models as user_models
 
 
 class Category(core_models.TimeStampedModel):
@@ -14,5 +15,5 @@ class Post(core_models.TimeStampedModel):
     """Post Model Definition"""
 
     title = models.CharField(max_length=80)
-    # writer = models.CharField(max_length=30)
+    writer = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
     body = models.TextField()
