@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 django = "*"
 flake8 = "*"
+django-seed = "*"
+faker = "*"
 
 [dev-packages]
 black = "*"
