@@ -9,11 +9,18 @@ class Category(core_models.TimeStampedModel):
 
     name = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.name
+
 
 class Post(core_models.TimeStampedModel):
 
     """Post Model Definition"""
 
+    category = models.ForeignKey("Category", on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=80)
-    writer = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
+    writer = models.ForeignKey(user_models.User, on_delete=models.CASCADE, null=True)
     body = models.TextField()
+
+    def __str__(self):
+        return self.title[:20]
