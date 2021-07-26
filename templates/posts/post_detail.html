@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{post.title}}{% endblock page_title %}
+
+{% block content %}
+
+
+<h1>{{post.title}}</h1>
+
+        {{post.created|date:"F-j-o"}}
+        {{post.category}}
+        {{post.writer}}
+        {{post.body}} 
+        <a href="{% url 'posts:delete' post.pk %}">삭제</a>
+        <br>
+
+{% endblock content %}

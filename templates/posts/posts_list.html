@@ -4,16 +4,17 @@
 
 {% block content %}
 
-Post List <br>
 
+<h1>Post List</h1>
 
     {% for post in posts %}
-    <a href="#">
         {{post.created|date:"F-j-o"}}
+        {{post.category}}
         {{post.title}} 
         {{post.writer}}
-        {{post.body}} <br>
-    </a>
+        {{post.body}} 
+        <a href="{% url 'posts:detail' post.pk %}">보기</a>
+        <br>
     {% endfor %}
 
 
