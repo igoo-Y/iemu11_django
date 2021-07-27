@@ -1,21 +1,45 @@
 {% extends 'base.html' %}
 
-{% block page_title %}카테고리{% endblock page_title %}
+{% block page_title %}Notice{% endblock page_title %}
 
 {% block content %}
 
+<div class="w-full h-64 bg-cover" style="background-image: url(https://igralaxe.sirv.com/WP_www.galahospitality.co.uk/football-hospitality/Spurs-football-hospitality/Tottenham-2019-Getty-Banner-1.jpg);"></div>
+<div class="container w-5/6 mx-auto pt-24 flex">
 
-<h1>Post List</h1>
+    <div class="w-1/5">
+        <h1 class="text-2xl font-semibold mb-5">IEMU11 소식</h1>
+        <ul>
+            <li>공지사항</li>
+        </ul>
+    </div>
+    
+    <div class="w-4/5">
+        <h1 class="text-xl font-semibold mb-5 text-left block w-full">{{current_category}}</h1>
 
-    {% for post in posts %}
-        {{post.created|date:"F-j-o"}}
-        {{post.category}}
-        {{post.title}} 
-        {{post.writer}}
-        {{post.body}} 
-        <a href="{% url 'posts:detail' post.pk %}">보기</a>
-        <br>
-    {% endfor %}
+        {% for post in posts %}
+        <div class="w-full h-20 border-t border-b border-gray-300 my-3">
+            <table>
+                <thead>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일자</th>
+                </thead>
+                <tbody>
+                    <td></td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.writer}}</td>
+                    <td>{{post.created|date:"F-j-o"}}</td>
+                    <td><a href="{% url 'posts:detail' post.pk %}">보기</a></td>
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+    
+
+</div>
 
 
 {% endblock content %}

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
+
+.nav-link {
+    @apply w-16 border-b-2 border-white flex justify-center mr-10 text-black font-medium;
+    a {
+        @apply py-px;
+    }
+    &:hover {
+        @apply hover:border-blue-900 hover:text-blue-900;
+    }
+}
+
 @tailwind utilities;
