@@ -25,6 +25,7 @@ class Post(core_models.TimeStampedModel):
     title = models.CharField(max_length=80)
     writer = models.ForeignKey(user_models.User, on_delete=models.CASCADE, null=True)
     body = models.TextField()
+    view_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title[:20]
