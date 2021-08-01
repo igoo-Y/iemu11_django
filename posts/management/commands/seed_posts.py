@@ -30,4 +30,4 @@ class Command(BaseCommand):
             },
         )
         seeder.execute()
-        self.stdout.write(self.style.SUCCESS(f"{number} Rooms created!"))
+        self.stdout.write(self.style.SUCCESS(f"{number} Posts created!"))

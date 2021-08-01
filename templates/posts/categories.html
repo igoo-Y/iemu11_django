@@ -11,17 +11,21 @@
         <h1 class="text-2xl font-semibold mb-5">IEMU11 소식</h1>
         <ul>
             {% for category in categories %}
-                <li><a href="{% url 'posts:category' category.name %}">{{category.name}}</a></li>
+            <li><a href="{% url 'posts:category' category.name %}">{{category.name}}</a></li>
             {% endfor %}
         </ul>
     </div>
     
     <div class="w-4/5">
-        <h1 class="text-xl font-semibold mb-5 text-left block w-full">공지사항</h1>
-
-        <div class="w-full h-20 border-t border-b border-gray-300 my-3">
-            {include}
-        </div>
+        <h1 class="text-xl font-semibold mb-5 text-left block w-full">{{category_name}}</h1>
+        {% for post in category_posts %}
+            <div class="w-full h-20 border-t border-b border-gray-300 my-3">
+                <ul>
+                    <li>{{post.title}}</li>
+                    <li><a href="{% url 'posts:detail' post.pk %}">보기</a></li>
+                </ul>
+            </div>
+        {% endfor %}
     </div>
 </div>
 
