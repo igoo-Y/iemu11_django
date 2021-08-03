@@ -2,7 +2,7 @@
 @tailwind components;
 
 .nav-link {
-    @apply w-16 border-b-2 border-white flex justify-center mr-10 text-black font-medium;
+    @apply w-14 border-b-2 pb-1 border-white flex justify-center mr-14 text-black font-medium;
     a {
         @apply py-px;
     }

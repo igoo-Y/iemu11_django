@@ -1,8 +1,0 @@
-<div class="w-1/5">
-    <h1 class="text-2xl font-semibold mb-5">IEMU11 소식</h1>
-    <ul>
-        {% for category in categories %}
-        <li><a href="{% url 'posts:category_posts' %}">{{category}}</a></li>
-        {% endfor %}
-    </ul>
-</div>

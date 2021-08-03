@@ -5,19 +5,19 @@
 {% block content %}
 
 <div class="w-full h-64 bg-cover" style="background-image: url(https://igralaxe.sirv.com/WP_www.galahospitality.co.uk/football-hospitality/Spurs-football-hospitality/Tottenham-2019-Getty-Banner-1.jpg);"></div>
-<div class="container w-5/6 mx-auto pt-24 flex">
+<div class="container w-5/6 mx-auto mt-24 flex">
 
-    <div class="w-1/5">
-        <h1 class="text-2xl font-semibold mb-5">IEMU11 소식</h1>
+    <div class="w-1/5 mr-28">
+        <h1 class="text-2xl font-medium mb-5">IEMU11 소식</h1>
         <ul>
             {% for category in categories %}
-            <li><a href="{% url 'posts:category' category.name %}">{{category.name}}</a></li>
+            <li class="mb-3 font-semibold text-lg"><a href="{% url 'posts:category' category.name %}">{{category.name}}</a></li>
             {% endfor %}
         </ul>
     </div>
     
     <div class="w-4/5">
-        <h1 class="text-xl font-semibold mb-5 text-left block w-full">{{category_name}}</h1>
+        <h1 class="text-xl font-medium mb-5 text-left block w-full">{{category_name}}</h1>
         {% for post in category_posts %}
             <div class="w-full h-20 border-t border-b border-gray-300 my-3">
                 <ul>
