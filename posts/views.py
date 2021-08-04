@@ -1,9 +1,10 @@
+from django.core import paginator
 from django.db import connection, models
 from django.http import request
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls.base import reverse_lazy
 from django.views.generic import ListView, DetailView, DeleteView
-from django.urls import reverse_lazy
+from django.core.paginator import Paginator
 from . import models
 
 
@@ -18,7 +19,10 @@ class Homeview(ListView):
 
 
 def CategoryView(request, category_name):
+    page = request.GET.get("page")
     category_posts = models.Post.objects.filter(category=category_name)
+    paginator = Paginator(category_posts, 10)
+    posts = paginator.get_page(page)
     categories = models.Category.objects.all()
     return render(
         request,
@@ -27,15 +31,9 @@ def CategoryView(request, category_name):
             "category_name": category_name,
             "category_posts": category_posts,
             "categories": categories,
+            "posts": posts,
         },
     )
-
-
-class PostListView(ListView):
-
-    model = models.Post
-    template_name = "posts/posts_list.html"
-    context_object_name = "posts"
 
 
 class PostDetailView(DetailView):
